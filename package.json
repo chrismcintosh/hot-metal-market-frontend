@@ -3,16 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3000"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^2.0.12",
     "axios": "^0.21.1",
-    "next": "^12.0.4",
+    "next": "^12.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-query": "^3.39.2",
     "swr": "^1.2.2"
   },
   "devDependencies": {
