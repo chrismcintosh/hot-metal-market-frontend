@@ -10,11 +10,14 @@
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^2.0.12",
+    "@stripe/react-stripe-js": "^1.14.1",
+    "@stripe/stripe-js": "^1.42.1",
     "axios": "^0.21.1",
     "next": "^12.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-query": "^3.39.2",
+    "stripe": "^10.15.0",
     "swr": "^1.2.2"
   },
   "devDependencies": {

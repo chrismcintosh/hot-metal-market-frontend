@@ -9,18 +9,21 @@ import ProductsIntro from '@/components/Products/ProductsIntro'
 import ProductsList from '@/components/Products/ProductList'
 import Navigation from '@/components/Layouts/Navigation'
 import { getLocationOrigin } from 'next/dist/shared/lib/utils'
-import { useState, useEffect } from 'react'
+import { useContext } from 'react'
 import CartSlideWrapper from '@/components/CartSlideWrapper'
+import { AppContext } from '@/lib/AppContext'
+import { ShoppingBagIcon } from '@heroicons/react/24/outline'
+
 // This gets called on every request
 
 
 export default function Home(props) {
     const { user } = useAuth({ middleware: 'guest' })
-
+    const appContext = useContext(AppContext);
     const {data, isLoading, isError, isSuccess} = useQuery(['products'], getProducts, { initialData: props.products })
 
     const { data: cart, isLoading: cartIsLoading, isError: cartIsError, isSuccess: cartIsSuccess } = useQuery(
-        ['cart', user],
+        ['cart', user?.id],
         getCart,
         {
           // The query will not execute until the userId exists
@@ -37,9 +40,13 @@ export default function Home(props) {
             {/* <Navigation user={user} /> */}
             {!cartIsLoading && <CartSlideWrapper cart={cart}/>}
 
+            <div>
+                <button onClick={()=> appContext.setCartOpen(true)}><ShoppingBagIcon />{cart?.items.length ? `${cart.items.length} Items $${cart.cartTotal}` : 'No Items'}</button>
+            </div>
+
             <div className="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:pt-0 flex-wrap">
                 <div className="text-white w-full">
-                    <ProductsIntro />
+                    {/* <ProductsIntro /> */}
                     
                     {data && <ProductsList products={data} />}
                 </div>

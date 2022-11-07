@@ -1,9 +1,8 @@
 import axios from "@/lib/axios";
 
 const getCart = async (user) => {
-    const req = await axios('http://localhost:8000/api/cart', { params: { user: user.id } })
-    console.log("in here")
-    console.log(req)
+    const id = user.queryKey[1]
+    const req = await axios('http://localhost:8000/api/cart', { params: { user: id } })
     return req.data
 };
 
