@@ -4,14 +4,10 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import { useAuth } from "@/hooks/auth";
-import axios from "@/lib/axios";
 
 export default function CheckoutForm({clientSecret}) {
   const stripe = useStripe();
   const elements = useElements();
-
-  // const { user } = useAuth({ middleware: 'guest' })
 
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -29,7 +25,6 @@ export default function CheckoutForm({clientSecret}) {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
-          // axios.delete('http://localhost:3000/api/cart/clear', { data: { user: user.id } })
           break;
         case "processing":
           setMessage("Your payment is processing.");
