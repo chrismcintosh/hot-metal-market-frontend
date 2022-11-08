@@ -39,9 +39,18 @@ export default function CartSlideWrapper({ cart }) {
         },
     )
 
+    const clearCartMutation = useMutation({
+        mutationFn: () => {
+          return axios.get('/api/cart/clear')
+        },
+        onSuccess: (data, variables, context) => {
+            queryClient.invalidateQueries(['cart'])
+        },
+      })
+
     const options = {
         clientSecret
-      };
+      }
 
     return (
             <Transition.Root show={appContext.cartOpen} as={Fragment}>
@@ -187,6 +196,15 @@ export default function CartSlideWrapper({ cart }) {
                                                         }}
                                                         >
                                                         Checkout
+                                                    </button>
+                                                    <button
+                                                        href="#"
+                                                        className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                                                        onClick={() => {
+                                                            clearCartMutation.mutate()
+                                                        }}
+                                                        >
+                                                        Clear Cart
                                                     </button>
                                                 </div>
                                                 <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
