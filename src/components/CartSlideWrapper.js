@@ -19,6 +19,7 @@ export default function CartSlideWrapper({ cart }) {
 
     const [isCheckout, setIsCheckout] = useState(false)
     const [clientSecret, setClientSecret] = useState("")
+    const [orderId, setOrderId] = useState("")
 
     const getPaymentIntent = async () => {
         const data = {
@@ -28,6 +29,7 @@ export default function CartSlideWrapper({ cart }) {
         }
         const res = await axios.post(`http://localhost:8000/api/stripe/generatePaymentIntent`, data)
         setClientSecret(res.data.client_secret)
+        setOrderId(res.data.metadata.order_id)
     }
 
     const deleteFromCartMutation = useMutation(
@@ -233,9 +235,9 @@ export default function CartSlideWrapper({ cart }) {
                                             {isCheckout && 
                                                 <div className="p-8">
                                                     <div className="pb-4">
-                                                        {clientSecret && (
+                                                        {clientSecret && orderId && (
                                                             <Elements options={options} stripe={stripePromise}>
-                                                                <CheckoutForm clientSecret={clientSecret} />
+                                                                <CheckoutForm clientSecret={clientSecret} orderId={orderId} />
                                                             </Elements>
                                                         )}   
                                                     </div> 

@@ -8,9 +8,7 @@ import { useAuth } from "@/hooks/auth";
 import axios from "@/lib/axios";
 import { useMutation, useQueryClient } from 'react-query'
 
-
-
-export default function CheckoutForm({clientSecret}) {
+export default function CheckoutForm({clientSecret, orderId}) {
   const stripe = useStripe();
   const elements = useElements();
   const queryClient = useQueryClient()
@@ -19,15 +17,6 @@ export default function CheckoutForm({clientSecret}) {
 
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
-
-  const clearCartMutation = useMutation({
-    mutationFn: () => {
-      return axios.get('/api/cart/clear')
-    },
-    onSuccess: () => {
-        queryClient.invalidateQueries(['cart'])
-    },
-  })
 
   React.useEffect(() => {
     
@@ -43,7 +32,6 @@ export default function CheckoutForm({clientSecret}) {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
-          clearCartMutation.mutate()
           break;
         case "processing":
           setMessage("Your payment is processing.");
@@ -75,7 +63,7 @@ export default function CheckoutForm({clientSecret}) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/orders",
+        return_url: `http://localhost:3000/orders/${orderId}`,
       },
     });
 
