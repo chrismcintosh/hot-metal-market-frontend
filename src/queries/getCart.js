@@ -1,4 +1,4 @@
-import axios from "@/lib/axios";
+import axios from "../lib/axios";
 
 const getCart = async (user) => {
     const id = user.queryKey[1]

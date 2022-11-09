@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'
-import { useAuth } from '@/hooks/auth'
-import getOrder from '@/queries/getOrder'
+import { useAuth } from '../../hooks/auth'
+import getOrder from '../../queries/getOrder'
 import Link from 'next/link'
 
 export default function Order(props) {

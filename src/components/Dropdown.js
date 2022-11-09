@@ -32,7 +32,7 @@ const Dropdown = ({
     const [open, setOpen] = useState(false)
 
     return (
-        <Menu as="div" className="relative">
+        <Menu as="div" className="relative z-10">
         {({ open }) => (
             <>
                 <Menu.Button as={React.Fragment}>{trigger}</Menu.Button>

@@ -1,8 +1,8 @@
-import axios from '@/lib/axios'
+import axios from '../../lib/axios'
 import { useMutation, useQueryClient } from 'react-query'
-import { useAuth } from '@/hooks/auth'
+import { useAuth } from '../../hooks/auth'
 import { useContext } from 'react'
-import { AppContext } from '@/lib/AppContext'
+import { AppContext } from '../../lib/AppContext'
 
 
 export default function ProductListCard({product}) {

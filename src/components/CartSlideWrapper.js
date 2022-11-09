@@ -1,13 +1,13 @@
 import { Fragment, useState, useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import axios from '@/lib/axios'
+import axios from '../lib/axios'
 import { useMutation, useQueryClient } from 'react-query'
-import { AppContext } from '@/lib/AppContext'
+import { AppContext } from '../lib/AppContext'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from './Checkout/CheckoutForm';
-import { useAuth } from '@/hooks/auth'
+import { useAuth } from '../hooks/auth'
 
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
@@ -188,7 +188,7 @@ export default function CartSlideWrapper({ cart }) {
                                                     Shipping and taxes
                                                     calculated at checkout.
                                                 </p>
-                                                <div className="mt-6">
+                                                <div className="mt-6 flex">
                                                     <button
                                                         href="#"
                                                         className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
@@ -201,7 +201,7 @@ export default function CartSlideWrapper({ cart }) {
                                                     </button>
                                                     <button
                                                         href="#"
-                                                        className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                                                        className="flex items-center justify-center rounded-md px-6 py-3 text-base font-medium hover:text-white shadow-sm hover:bg-indigo-700 ml-4"
                                                         onClick={() => {
                                                             clearCartMutation.mutate()
                                                         }}

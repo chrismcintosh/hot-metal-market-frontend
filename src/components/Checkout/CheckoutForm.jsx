@@ -4,8 +4,8 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import { useAuth } from "@/hooks/auth";
-import axios from "@/lib/axios";
+import { useAuth } from "../../hooks/auth";
+import axios from "../../lib/axios";
 import { useMutation, useQueryClient } from 'react-query'
 
 export default function CheckoutForm({clientSecret, orderId}) {

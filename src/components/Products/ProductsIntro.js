@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function ProductsIntro() {
     return (
       <div className="relative overflow-hidden bg-white">
@@ -79,13 +81,15 @@ export default function ProductsIntro() {
                     </div>
                   </div>
                 </div>
-  
-                <a
-                  href="#"
-                  className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
+                <Link
+                  href="/shop"
                 >
-                  Shop Collection
-                </a>
+                  <a
+                    className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
+                  >
+                    Shop Collection
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
