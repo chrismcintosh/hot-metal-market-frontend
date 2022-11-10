@@ -6,7 +6,7 @@ import getCart from '../../queries/getCart'
 import { useQuery } from 'react-query'
 
 const AppLayout = ({ header, children }) => {
-    const { user } = useAuth({ middleware: 'auth' })
+    const { user } = useAuth()
 
     const { data: cart, isLoading: cartIsLoading, isError: cartIsError, isSuccess: cartIsSuccess } = useQuery(
         ['cart', user?.id],

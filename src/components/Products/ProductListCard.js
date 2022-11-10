@@ -11,7 +11,7 @@ export default function ProductListCard({product}) {
 
   const appContext = useContext(AppContext);
 
-  const { user } = useAuth({ middleware: 'guest' })
+  const { user } = useAuth()
 
   const addToCartMutation = useMutation((data) => axios.post(`http://localhost:8000/api/cart`, data), {
     onSuccess: (data, variables, context) => {

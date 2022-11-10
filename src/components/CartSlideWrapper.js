@@ -14,7 +14,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 export default function CartSlideWrapper({ cart }) {
     const appContext = useContext(AppContext);
-    const { user } = useAuth({ middleware: 'guest' })
+    const { user } = useAuth()
     const queryClient = useQueryClient()
 
     const [isCheckout, setIsCheckout] = useState(false)

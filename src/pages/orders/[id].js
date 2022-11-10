@@ -5,7 +5,7 @@ import getOrder from '../../queries/getOrder'
 import Link from 'next/link'
 
 export default function Order(props) {
-    const { user } = useAuth({ middleware: 'guest' })
+    const { user } = useAuth({ middleware: 'auth' })
     const router = useRouter()
     const { id } = router.query
 
@@ -55,7 +55,7 @@ export default function Order(props) {
                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                             {order.products && order.products.map(product => {
                                 return (
-                                    <li>
+                                    <li key={product.id}>
                                         <Link href={`/products/${product.id}`}>
                                             <a>
                                                 {product.title} ({product.pivot.quantity})

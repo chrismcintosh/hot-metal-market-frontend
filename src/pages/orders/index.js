@@ -6,7 +6,7 @@ import AppLayout from '../../components/Layouts/AppLayout'
 import Head from 'next/head'
 
 export default function Orders(props) {
-    const { user } = useAuth({ middleware: 'guest' })
+    const { user } = useAuth({ middleware: 'auth' })
 
     const { data: orders, isLoading, isError, isSuccess } = useQuery(
         ['orders', user?.id],
@@ -58,4 +58,11 @@ export default function Orders(props) {
         </AppLayout>
     )
 }
- 
+
+
+export async function getInitialProps (ctx) {
+    if(ctx) {
+        console.log(ctx)
+    }
+    console.log("no ctx")
+}

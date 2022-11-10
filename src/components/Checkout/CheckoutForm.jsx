@@ -13,7 +13,7 @@ export default function CheckoutForm({clientSecret, orderId}) {
   const elements = useElements();
   const queryClient = useQueryClient()
 
-  const { user } = useAuth({ middleware: 'guest' })
+  const { user } = useAuth()
 
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);

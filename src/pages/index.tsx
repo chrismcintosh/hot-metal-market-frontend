@@ -9,7 +9,6 @@ import AppLayout from '../components/Layouts/AppLayout'
 // This gets called on every request
 
 export default function Home(props) {
-    const { user: object } = useAuth({ middleware: 'guest' })
     
     const {data, isLoading, isError, isSuccess} = useQuery(['products'], getProducts, { initialData: props.products })
 
@@ -17,7 +16,7 @@ export default function Home(props) {
         <AppLayout
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Hot Metal Market
+                    Hot Metal
                 </h2>
             }
         >
