@@ -29,7 +29,9 @@ const Navigation = ({ user }) => {
           // The query will not execute until the userId exists
           enabled: !!user,
         }
-      )
+    )
+
+    if (cartIsLoading) return <></>
 
     return (
         <nav className="bg-white border-b border-gray-100">

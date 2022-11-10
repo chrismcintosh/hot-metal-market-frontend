@@ -1,6 +1,5 @@
 import Navigation from '../Layouts/Navigation'
 import { useAuth } from '../../hooks/auth'
-import { useContext } from 'react'
 import CartSlideWrapper from '../CartSlideWrapper'
 import getCart from '../../queries/getCart'
 import { useQuery } from 'react-query'

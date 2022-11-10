@@ -3,14 +3,17 @@ import axios from '../lib/axios'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
+type Params = {
+    middleware?: string, 
+    redirectIfAuthenticated?: string
+}
+
+export const useAuth = ({ middleware, redirectIfAuthenticated } : Params = {}) => {
     const router = useRouter()
-    const [localUserData, setLocalUserData] = useState(undefined)
 
     const fetchUser = async () =>  {
         const req = await axios.get('/api/user')
         const data = await req.data
-        setLocalUserData(data)
         return data
     }
 

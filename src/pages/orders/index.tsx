@@ -6,7 +6,7 @@ import AppLayout from '../../components/Layouts/AppLayout'
 import Head from 'next/head'
 
 export default function Orders(props) {
-    const { user } = useAuth({ middleware: 'auth' })
+    const { user } = useAuth({ middleware: 'auth'})
 
     const { data: orders, isLoading, isError, isSuccess } = useQuery(
         ['orders', user?.id],
@@ -18,14 +18,18 @@ export default function Orders(props) {
       )
 
     return (
-        <AppLayout>
+        <AppLayout
+        header={
+            <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                Orders
+            </h2>
+        }>
             <Head>
                 <title>Orders - Hot Metal Market</title>
             </Head>
 
             <div className="relative flex items-top justify-center sm:pt-0 flex-wrap bg-white">
                 <div className="w-full">   
-                <h1>Orders</h1>
                 <table className="w-full">
                     <thead>
                         <tr>
@@ -57,12 +61,4 @@ export default function Orders(props) {
             </div>
         </AppLayout>
     )
-}
-
-
-export async function getInitialProps (ctx) {
-    if(ctx) {
-        console.log(ctx)
-    }
-    console.log("no ctx")
 }
