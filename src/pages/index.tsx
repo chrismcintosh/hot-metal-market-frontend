@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import getProducts from '../queries/getProducts'
 import { useQuery } from 'react-query'
 import ProductsIntro from '../components/Products/ProductsIntro'
