@@ -190,7 +190,6 @@ export default function CartSlideWrapper({ cart }) {
                                                 </p>
                                                 <div className="mt-6 flex">
                                                     <button
-                                                        href="#"
                                                         className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                                                         onClick={() => {
                                                             setIsCheckout(true)
@@ -200,7 +199,6 @@ export default function CartSlideWrapper({ cart }) {
                                                         Checkout
                                                     </button>
                                                     <button
-                                                        href="#"
                                                         className="flex items-center justify-center rounded-md px-6 py-3 text-base font-medium hover:text-white shadow-sm hover:bg-indigo-700 ml-4"
                                                         onClick={() => {
                                                             clearCartMutation.mutate()
@@ -217,7 +215,7 @@ export default function CartSlideWrapper({ cart }) {
                                                             className="font-medium text-indigo-600 hover:text-indigo-500"
                                                             onClick={() =>
                                                                 {
-                                                                    setOpen(false)
+                                                                    appContext.setCartOpen(false)
                                                                     setIsCheckout(false)
                                                                 }
                                                             }>
