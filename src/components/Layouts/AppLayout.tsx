@@ -1,4 +1,4 @@
-import Navigation from '../Layouts/Navigation'
+import Navigation from './Navigation'
 import { useAuth } from '../../hooks/auth'
 import CartSlideWrapper from '../CartSlideWrapper'
 import getCart from '../../queries/getCart'

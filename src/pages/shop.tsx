@@ -10,7 +10,11 @@ export default function Shop(props) {
     if (isLoading) return <h1>Is loading</h1>
 
     return (
-        <AppLayout>
+        <AppLayout header={
+            <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                Shop
+            </h2>
+        }>
             <Head>
                 <title>Shop - Hot Metal Market</title>
             </Head>
