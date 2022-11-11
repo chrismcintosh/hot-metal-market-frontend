@@ -39,8 +39,6 @@ export default function CheckoutForm({clientSecret, orderId}) {
         case "requires_payment_method":
           setMessage("Your payment was not successful, please try again.");
           break;
-        case "requires_source":
-          break;
         default:
           setMessage("Something went wrong.");
           break;
