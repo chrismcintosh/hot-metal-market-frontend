@@ -1,13 +1,13 @@
 import Head from 'next/head'
-import getProducts from '../queries/getProducts'
-import { useQuery } from 'react-query'
 import ProductsIntro from '../components/Products/ProductsIntro'
 import ProductsList from '../components/Products/ProductList'
 import AppLayout from '../components/Layouts/AppLayout'
+import { useGetProducts } from '../hooks/products/useGetProducts'
+import getProducts from '../queries/getProducts'
 
 export default function Home(props) {
     
-    const {data, isLoading} = useQuery(['products'], getProducts, { initialData: props.products })
+    const { data, isLoading } = useGetProducts(props.products)
 
     if (isLoading) return <h1>Loading..</h1>
 

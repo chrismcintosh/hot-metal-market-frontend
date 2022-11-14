@@ -6,7 +6,7 @@ export default function ProductsIntro() {
         <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
           <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-lg">
-              <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl" data-testid="products-intro-test-heading">
                 Summer styles are finally here
               </h1>
               <p className="mt-4 text-xl text-gray-500">
