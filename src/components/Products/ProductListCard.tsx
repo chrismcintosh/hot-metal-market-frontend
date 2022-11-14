@@ -6,11 +6,8 @@ import { AppContext } from '../../lib/AppContext'
 
 
 export default function ProductListCard({product}) {
-
   const queryClient = useQueryClient()
-
   const appContext = useContext(AppContext);
-
   const { user } = useAuth()
 
   const addToCartMutation = useMutation((data) => axios.post(`http://localhost:8000/api/cart`, data), {
@@ -25,6 +22,7 @@ return(
       <img
         src={product.image ?? '/images/placeholder.png'}
         className="h-full w-full object-cover object-center group-hover:opacity-75"
+        data-testid="product-list-card-image"
       />
     </div>
     <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
